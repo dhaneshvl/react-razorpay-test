@@ -20,7 +20,7 @@ const RazorpayPayment = () => {
         return;
       }
 
-      const response = await axios.get('http://52.91.207.136:9000/payment/initiate/'+amountInput);
+      const response = await axios.get('http://54.157.24.244:9000/payment/initiate/'+amountInput);
       console.log("Response from server: " + JSON.stringify(response));
 
       const { order_id, amount, currency } = response.data;
@@ -43,7 +43,7 @@ const RazorpayPayment = () => {
 
           // You can send the payment ID and order ID to your backend for verification and completion
           try {
-            await axios.post('http://52.91.207.136:9000/payment/complete', {
+            await axios.post('http://54.157.24.244:9000/payment/complete', {
               payment_id: response.razorpay_payment_id,
               order_id: order_id,
             });
